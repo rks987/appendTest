@@ -230,12 +230,13 @@ var e45 astTuple   //= astTuple{up: &e44, ctx: &e42, members: []astNode{&e46, &e
 var e46 astId      //= astId{up: &e45, ctx: &e42, id: ";"}
 var e47 astTuple   //= astTuple{up: &e45, ctx: &e42, members: []astNode{&e48, &e49}} // 2 stmts 1st case
 var e48 astCall    //= astCall{up: &e47, ctx: &e42, procParam: &e50}                 // x=[]
-var e50 astTuple   //= astTuple{up: &e48, ctx: &e42, members: []astNode{&e51, &e52}}
+var e50 astTuple   //= astTuple{up: &e48, ctx: &e42, members: []astNode{&e51, &e174}}
 var e51 astId      //= astId{up: &e50, ctx: &e42, id: "="}
+var e174 astTuple  //= astTuple{up: &e50, ctx: &e42, members: []astNode{&e54, &e55}}
 var e52 astCall    //= astCall{up: &e50, ctx: &e42, procParam: &e53} // all this for []
 var e53 astTuple   //= astTuple{up: &e52, ctx: &e42, members: []astNode{&e54, &e55}}
-var e54 astId      //= astId{up: &e53, ctx: &e42, id: "x"}
-var e55 astCall    //= astCall{up: &e53, ctx: &e42, procParam: &e56}
+var e54 astId      //= astId{up: &e174, ctx: &e42, id: "x"}
+var e55 astCall    //= astCall{up: &e174, ctx: &e42, procParam: &e56}
 var e56 astTuple   //= astTuple{up: &e55, ctx: &e42, members: []astNode{&e57, &e58}}
 var e57 astId      //= astId{up: &e56, ctx: &e42, id: "[]"}
 //r: unexpected x, expecting semicolon, newline, or }
@@ -403,9 +404,12 @@ func init() {
 	e46 = astId{up: &e45, ctx: &e42, id: ";"}
 	e47 = astTuple{up: &e45, ctx: &e42, members: []astNode{&e48, &e49}} // 2 stmts 1st case
 	e48 = astCall{up: &e47, ctx: &e42, procParam: &e50}                 // x=[]
-	e50 = astTuple{up: &e48, ctx: &e42, members: []astNode{&e51, &e52}}
+	//	e50 = astTuple{up: &e48, ctx: &e42, members: []astNode{&e51, &e52}}
+	e50 = astTuple{up: &e48, ctx: &e42, members: []astNode{&e51, &e53}}
 	e51 = astId{up: &e50, ctx: &e42, id: "="}
-	e52 = astCall{up: &e50, ctx: &e42, procParam: &e53} // all this for []
+	//	e174 = astTuple{up: &e50, ctx: &e42, members: []astNode{&e52, &e49}}
+	//	e52 = astCall{up: &e50, ctx: &e42, procParam: &e53} // all this for []
+	//	e52 = astCall{up: &e174, ctx: &e42, procParam: &e53}
 	e53 = astTuple{up: &e52, ctx: &e42, members: []astNode{&e54, &e55}}
 	e54 = astId{up: &e53, ctx: &e42, id: "x"}
 	e55 = astCall{up: &e53, ctx: &e42, procParam: &e56}
